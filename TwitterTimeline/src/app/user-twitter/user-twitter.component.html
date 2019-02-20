@@ -1,0 +1,36 @@
+<div>
+  <h3>Tweets Authorization</h3>
+</div>
+<div>
+  <button  (click)="makecall()" style="background-color:#0dae9e; color: white;font-weight: 500" mat-raised-button>Authorize</button>
+</div>
+<div >
+  <form>
+    <div >
+      <div style="margin-top: 1rem">
+          <input id="hashtags" type="text" [(ngModel)]="searchquery" [ngModelOptions]="{standalone: true}">
+          <label for="hashtags">Search by hashtags</label>
+      </div>
+    </div>
+    <div style="margin-top: 1rem">
+      <button (click)="searchcall()"  style="background-color:#0dae9e; color: white;font-weight: 500" mat-raised-button>Search</button>
+    </div>
+    <div style="margin-top: 1rem">Twitter Timeline View</div>
+    <div *ngFor="let item of tweetsdata" style="border: 1px solid green;border-radius:5px;height: 20rem;overflow: scroll; ">
+      <div class="card">
+        <div class="card-image">
+              <img style="width:10px;height:10px;" src={{item.user.profile_image_url}}>
+        </div>
+        <div class="right-content">
+          <span class="card-title">{{item.user.name}}</span>
+          <div class="card-content">
+            <p>{{item.text}}</p>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
